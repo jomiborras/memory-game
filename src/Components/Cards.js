@@ -4,7 +4,7 @@ import Card from "./Card";
 const Cards = () => {
     
     const [cards, setCards] = useState([
-        { id: 0, name:'Apple', status: '', img: '/images/01.png' },
+        { id: 0, name:'Apple', status: '', img: "/images/01.png" },
         { id: 0, name:'Apple', status: '', img: '/images/01.png' },
         { id: 1, name:'Banana', status: '', img: '/images/02.png' },
         { id: 1, name:'Banana', status: '', img: '/images/02.png' },
@@ -24,8 +24,6 @@ const Cards = () => {
     ].sort(() => Math.random() - .5));
 
     const [previousCardState, setPreviousCardState] = useState(-1);
-
-    console.log(previousCardState);
 
     const previousIndex = useRef(-1);
 

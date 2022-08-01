@@ -1,9 +1,10 @@
 import React from 'react'
 
 const Card = ({ card, index, clickHandler }) => {
+  
   return (
     <div className={`card ${card.status}`} onClick={() => clickHandler(index)}>
-        <img src={card.img} alt={card.name} />
+        <img src={process.env.PUBLIC_URL+ card.img} alt={card.name} />
     </div>
   );
 }
