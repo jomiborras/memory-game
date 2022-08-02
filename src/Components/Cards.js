@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import Card from "./Card";
+import Counter from "./Counter";
 
 const Cards = () => {
     
@@ -22,6 +23,8 @@ const Cards = () => {
         { id: 7, name:'Kiwi', status: '', img: '/images/08.png' }
 
     ].sort(() => Math.random() - .5));
+
+    const [moves, setMoves] = useState(0);
 
     const [previousCardState, setPreviousCardState] = useState(-1);
 
@@ -54,9 +57,11 @@ const Cards = () => {
                     cards[index].status = 'active';
                     setCards([...cards]);
                     setPreviousCardState(index);
+                    setMoves(moves + 1);
                 }else {
                     matchCheck(index);
                     previousIndex.current = -1;
+                    setMoves(moves + 1);
                 }
 
             }
@@ -66,7 +71,8 @@ const Cards = () => {
     }
 
     return (
-        <>
+        <>  
+        <Counter moves={moves}/>
             <div className="container">
                 { cards.map((card, index) => {
                     return <Card
